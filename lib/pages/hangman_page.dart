@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hangman_game/widgets/hangman.dart';
+import 'package:hangman_game/widgets/keyboard/hangman_keyboard.dart';
 import 'package:hangman_game/widgets/word_to_guess_view.dart';
 
 class HangmanPage extends StatelessWidget {
@@ -15,10 +16,16 @@ class HangmanPage extends StatelessWidget {
   }
 
   Widget _buildContent(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        WordToGuessView(),
-        Hangman(),
+        Expanded(
+          child: const WordToGuessView("Has_l_"),
+        ),
+        Expanded(
+          flex: 2,
+          child: Hangman(),
+        ),
+        HangmanKeyboard()
       ],
     );
   }
